@@ -1,0 +1,16 @@
+[auth]
+keys = ["dev"]
+
+[network]
+allowAnyHost = true
+
+[registry]
+localAgents = [
+  "./.coral/agents/corify-buyer",
+  "./.coral/agents/whaletrace",
+  "./.coral/agents/depthscan",
+  "./.coral/agents/pulsecheck",
+  "./.coral/agents/corify-ledger",
+]
+includeCoralHomeAgents = true
+localAgentRescanTimer = "5s"

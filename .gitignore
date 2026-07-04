@@ -1,0 +1,81 @@
+# Package managers / dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+.npm/
+*.log
+bun.lockb
+package-lock.json
+yarn.lock
+bun.lock
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# TypeScript
+*.d.ts
+!*.config.js
+!vitest.config.ts
+!scripts/*.ts
+
+# Testing
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Environment variables
+.env
+.env.*.local
+.env.local
+.env.development
+.env.production
+*.key
+*.pem
+*.json.keypair
+.corify/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Cairo / Scarb
+contracts/target/
+contracts/Scarb.lock
+
+# Deployment artifacts
+deployments.json
+*.deployed
+contracts/escrow/target/
+contracts/escrow/test-ledger/
+contracts/escrow/.anchor/
+contracts/broadcast/
+contracts/cache/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+.claude/
+.codex/
+.agents/
+**/.workflow-temp-*.ts
+.omx/
+
+# Local reference workspaces and installed skills; do not ship as Corify source
+solana_coralOS/
+coral-skill-set/
+alphaclaw/
+.skills/

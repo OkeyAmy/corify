@@ -1,0 +1,23 @@
+edition = 4
+
+[agent]
+name = "corify-ledger"
+version = "0.1.0"
+description = "Ledger verifier. Re-checks the winning seller's key claim and emits release/refund decision."
+readme = "Consumes DELIVERY messages, performs a mechanical Solana/Birdeye re-check, emits VERIFICATION_RESULT."
+summary = "Corify verifier"
+
+[agent.license]
+type = "spdx"
+expression = "Apache-2.0"
+
+[options]
+AGENT_NAME = { type = "string", default = "corify-ledger", description = "Coral runtime agent name" }
+HELIUS_RPC_URL = { type = "string", default = "", description = "Mainnet Solana RPC URL" }
+BIRDEYE_API_KEY = { type = "string", default = "", description = "Birdeye API key" }
+CORIFY_DATA_MODE = { type = "string", default = "live", description = "live | fixture" }
+
+[runtimes.executable]
+path = "pnpm"
+arguments = ["tsx", "agents/verifier/agent.ts"]
+transport = "streamable_http"

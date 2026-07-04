@@ -1,0 +1,23 @@
+edition = 4
+
+[agent]
+name = "whaletrace"
+version = "0.1.0"
+description = "WhaleTrace seller. Reports SOL balance, 24h transaction count, and largest sampled transfer."
+readme = "Bids only on wallet_activity WANT messages and reads Solana mainnet through Helius."
+summary = "Wallet activity specialist"
+
+[agent.license]
+type = "spdx"
+expression = "Apache-2.0"
+
+[options]
+AGENT_NAME = { type = "string", default = "whaletrace", description = "Coral runtime agent name" }
+HELIUS_RPC_URL = { type = "string", default = "", description = "Mainnet Solana RPC URL" }
+CORIFY_DATA_MODE = { type = "string", default = "live", description = "live | fixture" }
+DEMO_FORCE_BAD_DELIVERY = { type = "string", default = "", description = "Set whaletrace to force a bad delivery for refund proof" }
+
+[runtimes.executable]
+path = "pnpm"
+arguments = ["tsx", "agents/sellers/whaletrace/agent.ts"]
+transport = "streamable_http"

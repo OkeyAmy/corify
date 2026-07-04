@@ -1,0 +1,23 @@
+edition = 4
+
+[agent]
+name = "pulsecheck"
+version = "0.1.0"
+description = "PulseCheck seller. Reports holder momentum proxy and applies surge pricing."
+readme = "Bids only on holder_momentum WANT messages and reads Solana mainnet token account data."
+summary = "Holder momentum specialist"
+
+[agent.license]
+type = "spdx"
+expression = "Apache-2.0"
+
+[options]
+AGENT_NAME = { type = "string", default = "pulsecheck", description = "Coral runtime agent name" }
+HELIUS_RPC_URL = { type = "string", default = "", description = "Mainnet Solana RPC URL" }
+CORIFY_DATA_MODE = { type = "string", default = "live", description = "live | fixture" }
+PULSECHECK_CONCURRENT_REQUESTS = { type = "f64", default = 0, description = "Concurrent request count for surge pricing" }
+
+[runtimes.executable]
+path = "pnpm"
+arguments = ["tsx", "agents/sellers/pulsecheck/agent.ts"]
+transport = "streamable_http"

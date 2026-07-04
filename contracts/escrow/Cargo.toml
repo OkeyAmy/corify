@@ -1,0 +1,3 @@
+[workspace]
+members = ["programs/corify_escrow"]
+resolver = "2"

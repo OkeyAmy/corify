@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "agents/**/*",
+    "backend/**/*",
+    "contracts/**/*.ts",
+    "engine/**/*",
+    "lib/**/*",
+    "scripts/**/*",
+    "tests/**/*",
+    "index.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

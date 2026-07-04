@@ -1,0 +1,22 @@
+edition = 4
+
+[agent]
+name = "depthscan"
+version = "0.1.0"
+description = "DepthScan seller. Reports token price, 24h volume, and liquidity depth."
+readme = "Bids only on token_depth WANT messages and reads Birdeye."
+summary = "Token market depth specialist"
+
+[agent.license]
+type = "spdx"
+expression = "Apache-2.0"
+
+[options]
+AGENT_NAME = { type = "string", default = "depthscan", description = "Coral runtime agent name" }
+BIRDEYE_API_KEY = { type = "string", default = "", description = "Birdeye API key" }
+CORIFY_DATA_MODE = { type = "string", default = "live", description = "live | fixture" }
+
+[runtimes.executable]
+path = "pnpm"
+arguments = ["tsx", "agents/sellers/depthscan/agent.ts"]
+transport = "streamable_http"

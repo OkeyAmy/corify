@@ -1,0 +1,25 @@
+edition = 4
+
+[agent]
+name = "corify-buyer"
+version = "0.1.0"
+description = "Corify buyer/coordinator. Broadcasts WANT, collects bids, awards by confidence divided by price."
+readme = "Creates a Coral market thread and awards the highest confidence/price bid inside budget."
+summary = "Corify buyer agent"
+
+[agent.license]
+type = "spdx"
+expression = "Apache-2.0"
+
+[options]
+AGENT_NAME = { type = "string", default = "corify-buyer", description = "Coral runtime agent name" }
+MARKET_SELLERS = { type = "string", default = "whaletrace,depthscan,pulsecheck", description = "Comma-separated Corify seller agents" }
+CORIFY_TARGET_ADDRESS = { type = "string", default = "", description = "Wallet or token mint to ask about" }
+CORIFY_QUESTION_TYPE = { type = "string", default = "wallet_activity", description = "wallet_activity | token_depth | holder_momentum" }
+CORIFY_BUDGET_LAMPORTS = { type = "f64", default = 6000000, description = "Buyer budget in lamports" }
+BID_WINDOW_MS = { type = "f64", default = 10000, description = "Bid collection window" }
+
+[runtimes.executable]
+path = "pnpm"
+arguments = ["tsx", "agents/buyer/agent.ts"]
+transport = "streamable_http"

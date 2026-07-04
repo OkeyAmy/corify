@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corify</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="landing" aria-labelledby="landing-title">
+        <nav class="nav">
+          <strong>Corify</strong>
+          <div>
+            <a href="#market">Market</a>
+            <a href="#proof">Proof</a>
+          </div>
+        </nav>
+        <div class="landing-grid">
+          <div class="landing-copy">
+            <p class="eyebrow">Verified Solana research for agents</p>
+            <h1 id="landing-title">
+              Buy the answer after the chain checks it.
+            </h1>
+            <p>
+              Three specialist agents compete to answer one wallet or token
+              question. Ledger verifies the winning claim before devnet escrow
+              releases or refunds.
+            </p>
+            <a class="primary-link" href="#market">Open research desk</a>
+          </div>
+          <div class="landing-board" id="proof">
+            <div><span>01</span><b>Buyer posts WANT</b></div>
+            <div><span>02</span><b>Specialist bids</b></div>
+            <div><span>03</span><b>Ledger verifies</b></div>
+            <div><span>04</span><b>Escrow settles</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="market" class="workspace" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Solana intelligence market</p>
+            <h1 id="app-title">Corify</h1>
+          </div>
+          <div class="status-strip" aria-live="polite">
+            <span id="data-mode">data: checking</span>
+            <span id="settlement-mode">settlement: checking</span>
+          </div>
+        </header>
+
+        <section class="question-panel" aria-label="Research request">
+          <form id="want-form" class="want-form">
+            <div class="field-row">
+              <label for="question-type">Research product</label>
+              <select id="question-type" name="questionType">
+                <option value="wallet_activity">Wallet activity</option>
+                <option value="token_depth">Token market depth</option>
+                <option value="holder_momentum">Holder momentum</option>
+              </select>
+            </div>
+
+            <div class="field-row address-row">
+              <label for="target-address">Wallet or token address</label>
+              <input
+                id="target-address"
+                name="targetAddress"
+                autocomplete="off"
+                spellcheck="false"
+                value="Vote111111111111111111111111111111111111111"
+              />
+            </div>
+
+            <div class="field-grid">
+              <div class="field-row">
+                <label for="budget">Budget</label>
+                <input
+                  id="budget"
+                  name="budgetLamports"
+                  type="number"
+                  min="1"
+                  step="100000"
+                  value="6000000"
+                />
+              </div>
+              <button id="run-button" type="submit">Run market</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="market-grid">
+          <div class="panel catalog-panel">
+            <div class="panel-head">
+              <h2>Specialists</h2>
+              <span id="catalog-count">0 online</span>
+            </div>
+            <div id="catalog" class="catalog-list"></div>
+          </div>
+
+          <div class="panel feed-panel">
+            <div class="panel-head">
+              <h2>Auction feed</h2>
+              <span id="feed-state">idle</span>
+            </div>
+            <ol id="feed" class="feed-list">
+              <li>Waiting for a research request.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="results-layout">
+          <div class="panel answer-panel">
+            <div class="panel-head">
+              <h2>Answer</h2>
+              <span id="winner-badge">no winner</span>
+            </div>
+            <pre id="answer-output">{}</pre>
+            <p id="consumer-summary" class="summary-text">
+              LLM brief is off until an LLM provider, key, and model are
+              configured.
+            </p>
+          </div>
+
+          <div class="panel settlement-panel">
+            <div class="panel-head">
+              <h2>Settlement</h2>
+              <span id="settlement-badge">not started</span>
+            </div>
+            <dl class="settlement-list">
+              <div>
+                <dt>Deposit</dt>
+                <dd id="deposit-link">-</dd>
+              </div>
+              <div>
+                <dt>Ledger check</dt>
+                <dd id="ledger-check">-</dd>
+              </div>
+              <div>
+                <dt>Release / refund</dt>
+                <dd id="settlement-link">-</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

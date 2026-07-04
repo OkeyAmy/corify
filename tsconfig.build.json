@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "agents/**/*",
+    "backend/**/*",
+    "contracts/**/*.ts",
+    "engine/**/*",
+    "lib/**/*",
+    "scripts/**/*",
+    "index.ts"
+  ],
+  "exclude": ["node_modules", "dist", "tests", "**/*.test.ts", "**/*.spec.ts"]
+}
