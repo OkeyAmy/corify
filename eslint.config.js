@@ -12,6 +12,7 @@ export default [
     ignores: [
       'node_modules/**',
       'dist/**',
+      '.next/**',
       'coverage/**',
       '.coral/**',
       '.omx/**',
@@ -22,7 +23,9 @@ export default [
       'frontend/**/*.js',
       '**/*.d.ts',
       '**/*.config.js',
+      '**/*.config.mjs',
       '**/*.config.ts',
+      'next.config.mjs',
     ],
   },
   eslint.configs.recommended,
@@ -44,7 +47,7 @@ export default [
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {
-    files: ['**/*.ts'],
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {

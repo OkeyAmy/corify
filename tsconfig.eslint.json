@@ -7,6 +7,8 @@
     "agents/**/*",
     "backend/**/*",
     "contracts/**/*.ts",
+    "app/**/*",
+    "components/**/*",
     "engine/**/*",
     "lib/**/*",
     "scripts/**/*",

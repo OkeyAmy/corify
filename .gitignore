@@ -13,6 +13,7 @@ bun.lock
 dist/
 build/
 out/
+.next/
 *.tsbuildinfo
 
 # TypeScript
